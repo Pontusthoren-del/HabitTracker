@@ -1,43 +1,60 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HabitTracker.KategoriPage"
-             Title="{Binding Kategori}">
+             Title="{Binding Kategori}"
+             >
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
 
-    <VerticalStackLayout Padding="20" Spacing="15">
-
-        <Label x:Name="KategoriLabel"
+            <Label x:Name="KategoriLabel"
                FontSize="24"
                HorizontalOptions="Center" />
 
-        <Button Text="Lägg till vana" Clicked="OnLaggTillVanaClicked"/>
+            <Button Text="Lägg till vana" Clicked="OnLaggTillVanaClicked" WidthRequest="200" HeightRequest="100"/>
 
-        <CollectionView x:Name="vanaLista">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame Padding="10" Margin="5" BorderColor="Gray">
-                        <VerticalStackLayout>
+            <CollectionView x:Name="vanaLista">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="5" BorderColor="Gray">
+                            <VerticalStackLayout Spacing="10">
 
-                            <Label Text="{Binding Name}" FontSize="25" HorizontalOptions="Center" />
+                                <Label Text="{Binding Name}" FontSize="25" HorizontalOptions="Center" />
 
-                            <Label Text="{Binding Kategori, StringFormat='Kategori: {0}'}" FontSize="20" TextColor="White"/>
+                                <Label Text="{Binding Kategori, StringFormat='Kategori: {0}'}" FontSize="25" TextColor="White"/>
 
-                            <Label Text="{Binding AntalDagarGjorda, StringFormat='Dagar gjorda: {0}'}" FontSize="20" TextColor="LightGreen"/>
+                                <Label Text="{Binding AntalDagarGjorda, StringFormat='Dagar gjorda: {0}'}" FontSize="25" TextColor="LightGreen"/>
+                                <HorizontalStackLayout BindableLayout.ItemsSource="{Binding XPList}">
 
-                            <Button Text="Markera som gjord" Clicked="OnMarkeraGjortClicked" />
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <BoxView WidthRequest="15" HeightRequest="15" Color="#4CAF50" CornerRadius="3"/>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </HorizontalStackLayout>
+                                <Label Text="{Binding Level,StringFormat='Level: {0}'}"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       TextColor="Beige"
+                                      HorizontalOptions="Center"/>
 
-                            <Button Text="Ta bort vana" Clicked="OnTaBortVanaClicked" BackgroundColor="LightCoral" TextColor="White"/>
-                        </VerticalStackLayout>
-                    </Frame>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                                <Button Text="Markera som gjord" Clicked="OnMarkeraGjortClicked" 
+                                    BackgroundColor="MediumPurple" TextColor ="Beige" CornerRadius="8"/>
 
-        <Button
+                                <Button Text="Ta bort vana" Clicked="OnTaBortVanaClicked" 
+                                        BackgroundColor="DarkRed" TextColor ="Beige" CornerRadius="8"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button
             Text="Huvudmenyn"
             Clicked="OnTillbakaClicked"
             BackgroundColor="LightBlue"
             HorizontalOptions="Center"
             Margin="0,20,0,0"/>
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.Maui.Controls;   
-using Microsoft.Maui.Storage;    
-using Newtonsoft.Json;           
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Storage;
+using Newtonsoft.Json;
 using HabitTracker.Models;
 namespace HabitTracker;
 
@@ -55,9 +55,9 @@ public partial class KategoriPage : ContentPage
             vana.MarkeraGjort();
             vanaLista.ItemsSource = null;
             vanaLista.ItemsSource = vanor;
+            SparaVanor();
 
             await DisplayAlert("Motivation", vana.Motivation(), "OK");
-            SparaVanor();
         }
     }
     private async void OnTaBortVanaClicked(object sender, EventArgs e)
