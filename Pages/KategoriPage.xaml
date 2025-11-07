@@ -1,0 +1,43 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HabitTracker.KategoriPage"
+             Title="{Binding Kategori}">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Label x:Name="KategoriLabel"
+               FontSize="24"
+               HorizontalOptions="Center" />
+
+        <Button Text="Lägg till vana" Clicked="OnLaggTillVanaClicked"/>
+
+        <CollectionView x:Name="vanaLista">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" Margin="5" BorderColor="Gray">
+                        <VerticalStackLayout>
+
+                            <Label Text="{Binding Name}" FontSize="25" HorizontalOptions="Center" />
+
+                            <Label Text="{Binding Kategori, StringFormat='Kategori: {0}'}" FontSize="20" TextColor="White"/>
+
+                            <Label Text="{Binding AntalDagarGjorda, StringFormat='Dagar gjorda: {0}'}" FontSize="20" TextColor="LightGreen"/>
+
+                            <Button Text="Markera som gjord" Clicked="OnMarkeraGjortClicked" />
+
+                            <Button Text="Ta bort vana" Clicked="OnTaBortVanaClicked" BackgroundColor="LightCoral" TextColor="White"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button
+            Text="Huvudmenyn"
+            Clicked="OnTillbakaClicked"
+            BackgroundColor="LightBlue"
+            HorizontalOptions="Center"
+            Margin="0,20,0,0"/>
+
+    </VerticalStackLayout>
+</ContentPage>
