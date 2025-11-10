@@ -1,15 +1,50 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HabitTracker.MainPage"
-             >
+             x:Class="HabitTracker.MainPage">
 
-    <VerticalStackLayout Padding="30,50" Spacing="40" HorizontalOptions="Center">
-        <Label Text="Habit Tracker 💪📚"
-               FontSize="28"
-               HorizontalOptions="Center" />
+    <Grid>
+        <!-- Bakgrund -->
+        <Image Source="habit_bg.png"
+               Aspect="AspectFit"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill" />
 
-        <Button Text="Träning" Clicked="OnTraningClicked" WidthRequest="200" BackgroundColor="Beige" FontSize="Caption" HeightRequest="100"/>
-        <Button Text="Plugg" Clicked="OnPluggClicked" WidthRequest="200" BackgroundColor="Beige" FontSize="Caption" HeightRequest="100"/>
-    </VerticalStackLayout>
+        <!-- Grid med rader för layout -->
+        <Grid RowDefinitions="*, Auto, Auto, *"
+              ColumnDefinitions="*">
+
+            <!-- Titel -->
+            <Label Grid.Row="1"
+                   Text="Habit Tracker 💪📚"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,20,0,20"/>
+
+            <!-- Knappar -->
+            <VerticalStackLayout Grid.Row="2"
+                                 Spacing="20"
+                                 HorizontalOptions="Center">
+                <Button Text="Träning"
+                        Clicked="OnTraningClicked"
+                        WidthRequest="200"
+                        BackgroundColor="#333333"
+                        TextColor="White"
+                        FontSize="18"
+                        HeightRequest="100"
+                        CornerRadius="20"/>
+
+                <Button Text="Plugg"
+                        Clicked="OnPluggClicked"
+                        WidthRequest="200"
+                        BackgroundColor="#333333"
+                        TextColor="White"
+                        FontSize="18"
+                        HeightRequest="100"
+                        CornerRadius="20"/>
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
 </ContentPage>
