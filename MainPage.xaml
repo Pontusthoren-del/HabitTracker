@@ -12,37 +12,27 @@
         <!-- Grid med rader för layout -->
         <Grid RowDefinitions="*, Auto, Auto, *"
               ColumnDefinitions="*">
-
-            <!-- Titel -->
-            <Label Grid.Row="1"
-                   Text="Habit Tracker 💪📚"
-                   FontSize="28"
-                   FontAttributes="Bold"
-                   TextColor="White"
-                   HorizontalOptions="Center"
-                   HorizontalTextAlignment="Center"
-                   Margin="0,20,0,20"/>
-
+            
             <!-- Knappar -->
-            <VerticalStackLayout Grid.Row="2"
-                                 Spacing="20"
+            <VerticalStackLayout Grid.Row="1"
+                                 Spacing="10"
                                  HorizontalOptions="Center">
                 <Button Text="Träning"
                         Clicked="OnTraningClicked"
-                        WidthRequest="200"
+                        WidthRequest="150"
                         BackgroundColor="#333333"
                         TextColor="White"
                         FontSize="18"
-                        HeightRequest="100"
+                        HeightRequest="70"
                         CornerRadius="20"/>
 
                 <Button Text="Plugg"
                         Clicked="OnPluggClicked"
-                        WidthRequest="200"
+                        WidthRequest="150"
                         BackgroundColor="#333333"
                         TextColor="White"
                         FontSize="18"
-                        HeightRequest="100"
+                        HeightRequest="70"
                         CornerRadius="20"/>
             </VerticalStackLayout>
         </Grid>

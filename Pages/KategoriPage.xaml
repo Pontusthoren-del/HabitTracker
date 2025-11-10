@@ -3,59 +3,69 @@
              x:Class="HabitTracker.KategoriPage"
              Title="{Binding Kategori}"
              >
-    <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
+    <Grid>
+        <!-- Bakgrundsbild -->
+        <Image Source="habit_bg.png"
+               Aspect="AspectFit"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill" />
 
-            <Label x:Name="KategoriLabel"
+        <ScrollView>
+
+            <VerticalStackLayout Padding="20" Spacing="15">
+
+                <Label x:Name="KategoriLabel"
                FontSize="24"
                HorizontalOptions="Center" />
 
-            <Button Text="Lägg till vana" Clicked="OnLaggTillVanaClicked" WidthRequest="200" HeightRequest="100"/>
+                <Button Text="Lägg till vana" Clicked="OnLaggTillVanaClicked" WidthRequest="160" HeightRequest="80"/>
 
-            <CollectionView x:Name="vanaLista">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame Padding="10" Margin="5" BorderColor="Gray" BackgroundColor="#1E1E1E" CornerRadius="10">
-                            <VerticalStackLayout Spacing="10">
+                <CollectionView x:Name="vanaLista">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="10" Margin="5" BorderColor="Gray" BackgroundColor="#1E1E1E" CornerRadius="10">
+                                <VerticalStackLayout Spacing="10">
 
-                                <Label Text="{Binding Name}" FontSize="25" HorizontalOptions="Center" />
+                                    <Label Text="{Binding Name}" FontSize="25" HorizontalOptions="Center" />
 
-                                <Label Text="{Binding Kategori, StringFormat='Kategori: {0}'}" FontSize="25" TextColor="Grey"/>
+                                    <Label Text="{Binding Kategori, StringFormat='Kategori: {0}'}" FontSize="25" TextColor="Grey"/>
 
-                                <Label Text="{Binding AntalDagarGjorda, StringFormat='Dagar gjorda: {0}'}" FontSize="25" TextColor="LightGreen"/>
-                                <HorizontalStackLayout BindableLayout.ItemsSource="{Binding XPList}">
+                                    <Label Text="{Binding AntalDagarGjorda, StringFormat='Dagar gjorda: {0}'}" FontSize="25" TextColor="LightGreen"/>
+                                    <HorizontalStackLayout BindableLayout.ItemsSource="{Binding XPList}">
 
-                                    <BindableLayout.ItemTemplate>
-                                        <DataTemplate>
-                                            <BoxView WidthRequest="15" HeightRequest="15" Color="#4CAF50" CornerRadius="3"/>
-                                        </DataTemplate>
-                                    </BindableLayout.ItemTemplate>
-                                </HorizontalStackLayout>
-                                <Label Text="{Binding Level,StringFormat='Level: {0}'}"
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate>
+                                                <BoxView WidthRequest="15" HeightRequest="15" Color="#4CAF50" CornerRadius="3"/>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </HorizontalStackLayout>
+                                    <Label Text="{Binding Level,StringFormat='Level: {0}'}"
                                        FontSize="20"
                                        FontAttributes="Bold"
                                        TextColor="Beige"
                                       HorizontalOptions="Center"/>
 
-                                <Button Text="Markera som gjord" Clicked="OnMarkeraGjortClicked" 
-                                    BackgroundColor="MediumPurple" TextColor ="Beige" CornerRadius="8"/>
+                                    <Button Text="Markera som gjord" Clicked="OnMarkeraGjortClicked" 
+                                    BackgroundColor="MediumPurple" TextColor ="Beige" CornerRadius="8" />
 
-                                <Button Text="Ta bort vana" Clicked="OnTaBortVanaClicked" 
+                                    <Button Text="Ta bort vana" Clicked="OnTaBortVanaClicked" 
                                         
                                         BackgroundColor="DarkRed" TextColor ="Beige" CornerRadius="8"/>
-                            </VerticalStackLayout>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                                </VerticalStackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
-            <Button
+                <Button
             Text="Huvudmenyn"
             Clicked="OnTillbakaClicked"
             BackgroundColor="LightBlue"
             HorizontalOptions="Center"
             Margin="0,20,0,0"/>
 
-        </VerticalStackLayout>
-    </ScrollView>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>
