@@ -1,38 +1,36 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HabitTracker.MainPage">
+             x:Class="HabitTracker.MainPage"
+             Title="Huvudmeny">
 
     <Grid>
-        <!-- Bakgrund -->
         <Image Source="habit_bg.png"
                Aspect="AspectFit"
                HorizontalOptions="Fill"
                VerticalOptions="Fill" />
 
-        <!-- Grid med rader för layout -->
         <Grid RowDefinitions="*, Auto, Auto, *"
               ColumnDefinitions="*">
-            
-            <!-- Knappar -->
+
             <VerticalStackLayout Grid.Row="1"
                                  Spacing="10"
                                  HorizontalOptions="Center">
                 <Button Text="Träning"
                         Clicked="OnTraningClicked"
                         WidthRequest="150"
+                        HeightRequest="70"
                         BackgroundColor="#333333"
                         TextColor="White"
                         FontSize="18"
-                        HeightRequest="70"
                         CornerRadius="20"/>
 
                 <Button Text="Plugg"
                         Clicked="OnPluggClicked"
                         WidthRequest="150"
+                        HeightRequest="70"
                         BackgroundColor="#333333"
                         TextColor="White"
                         FontSize="18"
-                        HeightRequest="70"
                         CornerRadius="20"/>
             </VerticalStackLayout>
         </Grid>
