@@ -18,6 +18,14 @@ public partial class KategoriPage : ContentPage
         KategoriLabel.Text = kategori;
         vanaLista.ItemsSource = vanor;
 
+        var timer = Application.Current.Dispatcher.CreateTimer();
+        timer.Interval = TimeSpan.FromSeconds(1);
+        timer.Tick += (s, e) =>
+        {
+            ClockLabel.Text = DateTime.Now.ToString("HH:mm:ss");
+        };
+        timer.Start();
+
         LaddaVanor();
     }
     private void SparaVanor()

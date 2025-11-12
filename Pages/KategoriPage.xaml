@@ -3,14 +3,23 @@
              x:Class="HabitTracker.KategoriPage"
              Title="{Binding Kategori}">
 
-    <Grid>
+    <Grid RowDefinitions="Auto,*">
         <!-- Bakgrundsbild -->
         <Image Source="habit_bg.png"
                Aspect="AspectFit"
+               Grid.RowSpan="2"
                HorizontalOptions="Fill"
                VerticalOptions="Fill" />
+        <Label x:Name="ClockLabel"
+               TextColor="White"
+               FontSize="18"
+               FontAttributes="Bold"
+               HorizontalOptions="End"
+               VerticalOptions="Start"
+               Margin="10"
+               Grid.Row="0"/>
 
-        <ScrollView>
+        <ScrollView Grid.Row="1">
             <VerticalStackLayout Padding="20" Spacing="15">
 
                 <Label x:Name="KategoriLabel"
